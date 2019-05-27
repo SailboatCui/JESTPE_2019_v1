@@ -91,21 +91,22 @@ if the filter $\tau$ satisfies the following equations, the stability of inner c
 \end{theorem}
 We notice that the inner-loop dynamics is dependent on the current at the operating point peak-current $I_p$.
 \begin{proposition}
-For any peak-current value $I_p$,
+Given any peak-current value $I_p$, the $s$ in system has a minimum value $s_1$, 
 \begin{align} \label{eqn:s_lower_bound1}
-    s  % = & m_1 + \frac{- \frac{\left[ m_1 t + A \, \text{sin}(\omega  t+\varphi) \right] u(t) * h(t)
+    % = & m_1 + \frac{- \frac{\left[ m_1 t + A \, \text{sin}(\omega  t+\varphi) \right] u(t) * h(t)
     % }{\left(1 - b\right)} \frac{b}{\tau} + \frac{A\, \text{sin}(\omega T_{\text{on}}+\varphi)}{\tau}}{1-d} \nonumber \\
-    \ge  \left( m_1 - \frac{b tu(t)*h(t)}{(1-b)(1-d)\tau} m_1-\frac{b A\, \text{sin}(\omega t+\varphi) u(t)*h(t)}{(1-b)(1-d)\tau} + \frac{A\text{sin}(\omega t+\varphi)}{(1-d)\tau} \right) \bigg\vert_{t = T_{\text{on}}}
+    s_1 = \left( m_1 - \frac{b tu(t)*h(t)}{(1-b)(1-d)\tau} m_1-\frac{b A\, \text{sin}(\omega t+\varphi) u(t)*h(t)}{(1-b)(1-d)\tau} + \frac{A\text{sin}(\omega t+\varphi)}{(1-d)\tau} \right) \bigg\vert_{t = T_{\text{on}}}
 \end{align}
-The equality holds iff  $I_p = m_2 T_{\text{off}}$ (i.e. $I_v = 0$).\\
+The minimum value is reached iff  $I_p = m_2 T_{\text{off}}$ (i.e. $I_v = 0$).
 \end{proposition}
-
 \begin{proof}
  Recall that $d > b$, $s$ is monotonic increasing function with respect to $I_p$. Therefore, the minimum $s$ is reached at $I_v = 0$. From (\ref{eqn:equic}) and (\ref{eqn:transzparam}), we have the equation xx.
 \end{proof}
-
 \begin{proposition}
-
+Given any interference initial phase $\varphi$ and frequency $\omega >> \frac{2\pi}{\tau}$, the $s_1$ has a minimum value $s_2$,
+\begin{align} \label{eqn:s_lower_bound2}
+    s_2 = \left( 1- k_0 - \frac{A}{m_1 T_{\text{on}}} k_1 \right)m_1.
+\end{align}
 \end{proposition}
 
 \begin{proof}
@@ -115,33 +116,29 @@ The equality holds iff  $I_p = m_2 T_{\text{off}}$ (i.e. $I_v = 0$).\\
 %     \beta & = \frac{m_1}{m_1(1-e^{-T_{\text{on}}/\tau}) - \left( \frac{m_1(T_{\text{on}}+\tau e^{-T_{\text{on}}/\tau}-\tau)+ \frac{A \, \text{sin}(\omega  T_{\text{on}} +\varphi)}{\omega \tau}}{\left(1-e^{-(T_\text{on}+T_{\text{off}})/\tau}\right)}\right) \frac{e^{-(T_{\text{on}} +T_{\text{off}}) /\tau}}{\tau} + \frac{A\, \text{cos}(\omega T_{\text{on}}+\varphi)}{\tau}}. 
 % \end{align}
 
-From the assumptions, (\ref{eqn:s_lower_bound1}) can be further extended as
-\begin{align}  \label{eqn:s_lower_bound2}
-    \cdots \approx m_1 - \frac{b(T_{\text{on}} + (d-1)\tau)}{(1-b)(1-d)\tau} m_1 + \frac{A\text{sin}(\omega T_{\text{on}}+\varphi)}{(1-d)\tau}
+We use the following approximations  to simplify (\ref{eqn:s_lower_bound2})
+\begin{align}
+    tu(t)*m(t) = \left(t + (e^{-\frac{t}{\tau}}-1)\tau \right) u(t)
 \end{align}
-We use the following approximations from (\ref{eqn:s_lower_bound1}) to (\ref{eqn:s_lower_bound2})
 \begin{align}
     A \, \text{sin}(\omega  t+\varphi) u(t) * h(t) = -\frac{A \text{cos}(\omega t + \varphi + \delta)}{\sqrt{1+\omega^2\tau^2}} + \frac{A \text{cos}( \varphi + \delta)}{\sqrt{1+\omega^2\tau^2}} e^{-\frac{t}{\tau}} \approx -\frac{A \text{cos}(\omega t + \varphi)}{\omega\tau} + \frac{A \text{cos}( \varphi)}{\omega \tau} e^{-\frac{t}{\tau}}
 \end{align}
 where $\delta = \text{arctg}(\tau w)^{-1}$.
-\begin{align}
-    tu(t)*m(t) = \left(t + (e^{-\frac{t}{\tau}}-1)\tau \right) u(t)
-\end{align}
+% \begin{align}  \label{eqn:s_lower_bound2}
+%     \cdots \approx m_1 - \frac{b(T_{\text{on}} + (d-1)\tau)}{(1-b)(1-d)\tau} m_1 + \frac{A\text{sin}(\omega T_{\text{on}}+\varphi)}{(1-d)\tau}
+% \end{align}
 
 \begin{align}
-    =& \frac{A}{(1-d)\tau}\left( \frac{b}{1-b} \frac{1}{\omega \tau} cos(\omega t + \varphi) + \text{sin}(\omega t+\varphi))\right) -
-    \frac{b}{(1-b)(1-d)\tau}\left( m_1T_{\text{on}} \left( 1 + \frac{d-1}{T_{\text{on}}/\tau}\right) + \frac{A \text{cos}\varphi}{\omega \tau}\right) \nonumber \\ 
-    =&\frac{A}{(1-d)\tau}\text{sin}(\omega t+\varphi) - \frac{ m_1T_{\text{on}} b }{(1-b)(1-d)\tau} \left( 1 + \frac{d-1}{T_{\text{on}}/\tau}\right)
-\end{align}
-
-The stability of inner current loop should be guaranteed for any input noise phase $\varphi$, hence (\ref{eqn:s_lower_bound1}) can be further extended as
-\begin{align}  \label{eqn:s_lower_bound2}
-    \cdots \ge (1- k_0 - \frac{A}{m_1 T_{\text{on}}} k_1)m_1   
+    s_2 = & \, m_1 - \frac{b}{(1-b)(1-d)\tau}\left( m_1T_{\text{on}} \left( 1 + \frac{d-1}{T_{\text{on}}/\tau}\right) + \frac{A \text{cos}\varphi}{\omega \tau}\right) \nonumber \\
+    & + \frac{A}{(1-d)\tau}\left( \frac{b}{1-b} \frac{1}{\omega \tau} \text{cos}(\omega T_{\text{on}} + \varphi) + \text{sin}(\omega T_{\text{on}}+\varphi)\right) \nonumber \\
+    \approx & \, m_1 - \frac{ m_1T_{\text{on}} b }{(1-b)(1-d)\tau} \left( 1 + \frac{d-1}{T_{\text{on}}/\tau}\right) + \frac{A\text{sin}(\omega T_{\text{on}}+\varphi)}{(1-d)\tau} \nonumber \\
+    = & \, \left(1- k_0 - \frac{A}{m_1 T_{\text{on}}} k_1 \right)m_1 
 \end{align}
 where
 \begin{align}
-    k_0 = \frac{b(c+d-1)}{(1-b)(1-d)c^2} \quad k_1 = \frac{1}{c(1-d)} \quad c = \frac{\tau}{T_{\text{on}}}
+    k_0 = \frac{cd-c+1}{(1-b)(1-d)c} \quad k_1 = \frac{1}{c(1-d)} \quad c = \frac{\tau}{T_{\text{on}}}
 \end{align}
+\end{proof}
 % The stability of inner current loop should be guaranteed for any input noise phase $\varphi$, hence (\ref{eqn:s_lower_bound1}) can be further extended as
 % \begin{align}  \label{eqn:s_lower_bound2}
 %     \cdots \ge (1- k_0 - \frac{A}{\omega} k_1 - A k_2)m_1   
@@ -166,6 +163,8 @@ where
 % \begin{align}
 %     k_0 + \frac{A_{\text{min}}}{\omega_{\text{max}}} k_1  + A_{\text{min}} k_2 < \frac{1}{2}
 % \end{align}
+Then we finish the proof of theorem 1
+\begin{proof}
 From (\ref{eqn:s_lower_bound2}), the pole of (\ref{eqn:filter_ztransform}) is lowered bounded by
 \begin{align}
     a \ge  1 - \frac{1}{1 - (k_0 + \frac{A}{m_1 T_{\text{on}}} k_1 )}
@@ -174,7 +173,6 @@ From the theorem, we have the stability condition is. Therefore, if the filter $
 \begin{align}
     k_0 + \frac{A_{\text{max}}}{m_1 T_{\text{on}}} k_1 < \frac{1}{2}
 \end{align}
-
 \end{proof}
 % We notice that the location of pole $a^i_1$ is dependent on the phase $\phi$ and frequency $\omega$ of the interference function $f$. To guarantee the stability within all phases $\phi$ and frequency $\omega$, 
 
