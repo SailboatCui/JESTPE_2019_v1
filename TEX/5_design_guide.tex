@@ -1,0 +1,35 @@
+\section{Design Guide} \label{designguide}
+We show a detailed Step-by-step Design Guide of PCC in high frequency power converters. 
+A.	Architecture
+1.	Fixed Frequency 
+a)	s-domain design
+b)	ramp compensation design
+2.	Variable frequency 
+a)	digital control using 5S model
+
+b)	analog control using describing function (ref)
+
+\begin{align}
+    
+\end{align}
+
+\subsection{Parameter selections and design equations}
+1.	Shunt resistor sensor is well-suited to high frequency PCC
+a)	Shunt resistor sensor is often used because of its simplicity and high bandwidth response
+(1)	Ground-Reference shunt resistor sensor eases the measurement and improves the accuracy
+(a)	The inductor current sensing method by a series shunt resistor is problematic in the high frequency PCC converters because of large common interference (Virginia Li, Fred Lee, 201, APEC) (Adán, TIE 2008) (Prodic 2011)
+(i)	The current mirror in (Prodic 2011) is only suitable for IC.
+(ii)	It is non-trivial to select a high bandwidth differential-voltage amplifier and it takes much efforts to design a circuit with good common mode noise rejection. (Adán, TIE 2008)
+(b)	Although the current information is only available when the sw is turned on in ground-reference shunt resistor sensor, it is quite enough for the PCC
+
+b)	Using inductor DCR or MOSFET Rdson (Fujio 2016 TPEL) (Adán, TIE 2008) method lacks the accuracy
+(1)	 The L’s value is not accurate because of the varying current during transient. 
+(2)	Both the DCR and Rdson value is changing the time
+(3)	cannot work if we need the inductor to be saturated (Prodic, APEC 2012)
+c)	Hall Effect sensor has limited bandwidth, (Yen-Shin Lai, 2009), 200KHz switching frequency and costly
+d)	Current transformer also suffers from the limited bandwidth, in addition, it cannot measure DC current
+2.	Improve the measurement bandwidth using shunt resistor
+a)	RC compensation for parasitic inductor
+ 
+ 
+ 

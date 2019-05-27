@@ -1,0 +1,106 @@
+\documentclass[pdftex,letterpaper,11pt]{article}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[inline]{enumitem}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+\usepackage{amssymb,amsfonts} % Add by Xiaofan
+\usepackage{amsthm} % Add by Xiaofan
+\usepackage{commath} % Add by Xiaofan
+\usepackage{algorithmic}
+\usepackage{mathtools, nccmath}% Add by Xiaofan
+%\usepackage{setspace} % Add by Xiaofan
+\usepackage{sectsty} % Add by Xiaofan
+\sectionfont{\normalsize}% Add by Xiaofan
+
+\usepackage{array}
+% \usepackage[demo]{graphicx}
+% \usepackage[title]{appendix}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage[final]{pdfpages}
+
+% Imported Package
+
+% %\usepackage[USenglish,american]{babel}
+% \usepackage{cite}
+% \usepackage{amsmath,amssymb,amsfonts}
+% \usepackage{algorithmic}
+% %\usepackage{graphicx}
+% \usepackage{url}
+% %\usepackage{array}
+% %\usepackage{textcomp}
+% \usepackage{xcolor}
+% %\usepackage[final]{pdfpages}
+
+
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+\usepackage[left=1.7cm,top=1.7cm,right=1.7cm,bottom=1.7cm]{geometry}
+
+\usepackage{setspace}
+\doublespacing
+
+\graphicspath{{./figures/}}
+
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 0.3ex}
+}
+
+\begin{document}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\theoremstyle{definition}
+\newtheorem{corollary}{Corollary}
+
+\title {\large  \bf \vspace{-10ex}
+Theory and Practice (Analysis and Design) Peak Current Mode Control of High-Frequency DC-DC Converters
+\vspace{0ex}}
+\date{}
+\author{Xiaofan~Cui\thanks{X. Cui is with the Department
+of Electrical Engineering and Computer Science, University of Michigan, Ann Arbor,
+MI, 48109, USA, e-mail: cuixf@umich.edu.}\,,\ \textit{Student Member},~\textit{IEEE},
+        and Al-Thaddeus~Avestruz\thanks{A. T. Avestruz (corresponding author) is an assistant professor with the Department
+        of Electrical Engineering and Computer Science, University of Michigan, Ann Arbor, MI, 48109, USA, e-mail: avestruz@umich.edu, telephone number: (+1)617-290-4179.}\,,\ \textit{Member},~\textit{IEEE}
+        % <-this % stops a space
+       % <-this % stops a space
+% <-this % stops a space
+}
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\renewcommand{\figurename}{Fig.}
+
+
+\input{TEX/2_abstract.tex}\\
+\textbf{Index Items:}
+\newpage
+\input{TEX/3_1_introduction.tex}
+\input{TEX/3_modeling.tex}
+\input{TEX/4_1_solution_copd.tex}
+\input{TEX/4_2_solution_sc.tex}
+\input{TEX/4_3solution_filter.tex}
+\input{TEX/5_design_guide.tex}
+\input{TEX/6_conclusion.tex}
+
+{\setstretch{1}\vspace{\baselineskip}
+\bibliographystyle{IEEEtran}
+\bibliography{Misc/bibliography.bib,Misc/library.bib}
+}
+
+\end{document}
